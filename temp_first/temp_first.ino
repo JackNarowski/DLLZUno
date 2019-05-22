@@ -13,7 +13,7 @@ ZUNO_SETUP_CHANNELS(
 );
 
 void setup() {
-    pinMode (lightsense, INPUT);
+    pinMode (tempsense, INPUT);
     Serial.begin();
     Serial.println("start");  
 }
@@ -27,7 +27,7 @@ void loop() {
     delay(30000);
 }
 
-byte getterLight() {
+byte getterTemp() {
   Serial.println("GETTER");
     return tempinput;
 }
