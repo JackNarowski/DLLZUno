@@ -4,8 +4,10 @@ int lightsense = A1;
 int tempinput = 0;
 int lightinput = 0;
 
-#define ZUNO_CHANNEL_NUMBER_ONE 1
-#define ZUNO_CHANNEL_NUMBER_TWO 2
+#define CTRL_GROUP_1 1
+#define CTRL_GROUP_2 2
+
+ZUNO_SETUP_ASSOCIATIONS(ZUNO_ASSOCIATION_GROUP_SET_VALUE, ZUNO_ASSOCIATION_GROUP_SET_VALUE);
 
 ZUNO_SETUP_SLEEPING_MODE(ZUNO_SLEEPING_MODE_ALWAYS_AWAKE);
 ZUNO_SETUP_CHANNELS(
@@ -34,7 +36,8 @@ void loop() {
     temp();
     light();
     // send data to channel
-    zunoSendReport(1);   
+    zunoSendReport(1);  
+    delay(30000); 
     zunoSendReport(2);  
     // send every 30 second
     delay(30000);
